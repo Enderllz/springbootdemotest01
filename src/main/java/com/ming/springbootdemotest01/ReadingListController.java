@@ -1,22 +1,26 @@
 package com.ming.springbootdemotest01;
+
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 
 @Controller
 @RequestMapping("/")
 public class ReadingListController {
     private final ReadingListRepository readingListRepository;
+
     @Autowired
     public ReadingListController(
             ReadingListRepository readingListRepository) {
         this.readingListRepository = readingListRepository;
     }
-    @RequestMapping(value="/{reader}", method=RequestMethod.GET)
+
+    @RequestMapping(value = "/{reader}", method = RequestMethod.GET)
     public String readersBooks(
             @PathVariable("reader") String reader,
             Model model) {
@@ -27,7 +31,8 @@ public class ReadingListController {
         }
         return "readingList";
     }
-    @RequestMapping(value="/{reader}", method=RequestMethod.POST)
+
+    @RequestMapping(value = "/{reader}", method = RequestMethod.POST)
     public String addToReadingList(
             @PathVariable("reader") String reader, Book book) {
         book.setReader(reader);
