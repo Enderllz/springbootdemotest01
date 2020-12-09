@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-@Controller
 @RequestMapping("/")
 public class ReadingListController {
     private final ReadingListRepository readingListRepository;
@@ -21,11 +20,8 @@ public class ReadingListController {
     }
 
     @RequestMapping(value = "/{reader}", method = RequestMethod.GET)
-    public String readersBooks(
-            @PathVariable("reader") String reader,
-            Model model) {
-        List<Book> readingList =
-                readingListRepository.findByReader(reader);
+    public String readersBooks(@PathVariable("reader") String reader, Model model) {
+        List<Book> readingList = readingListRepository.findByReader(reader);
         if (readingList != null) {
             model.addAttribute("books", readingList);
         }
@@ -33,8 +29,7 @@ public class ReadingListController {
     }
 
     @RequestMapping(value = "/{reader}", method = RequestMethod.POST)
-    public String addToReadingList(
-            @PathVariable("reader") String reader, Book book) {
+    public String addToReadingList(@PathVariable("reader") String reader, Book book) {
         book.setReader(reader);
         readingListRepository.save(book);
         return "redirect:/{reader}";
