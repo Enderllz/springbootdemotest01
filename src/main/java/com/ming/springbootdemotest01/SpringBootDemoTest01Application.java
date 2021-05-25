@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@ComponentScan(basePackages = {"com.ming.springbootdemotest01"})
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class SpringBootDemoTest01Application extends WebMvcConfigurerAdapter {
 
