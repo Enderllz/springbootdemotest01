@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class BusinessPerson implements Person {
     @Autowired
-    @Qualifier("dog")
     private Animal animal = null;
 
     @Override

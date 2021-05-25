@@ -4,8 +4,6 @@ import com.ming.springbootdemotest01.service.Animal;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Component
-@Primary
 public class Cat implements Animal {
     @Override
     public void use() {

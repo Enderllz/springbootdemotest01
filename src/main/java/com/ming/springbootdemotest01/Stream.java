@@ -28,9 +28,9 @@ public class Stream {
 //        func.setSchool("nupt");
 //        System.out.println(func.getSchool());
 
-//        ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationFilterConfig.class);
-//        Person person = ctx.getBean(BusinessPerson.class);
-//        person.service();
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
+        Person person = ctx.getBean(BusinessPerson.class);
+        person.service();
     }
 }
 
